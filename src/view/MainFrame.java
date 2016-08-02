@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -19,15 +20,6 @@ public class MainFrame extends JFrame {
 		this.setSize(frameDim);
 		Point screenCenter = new Point((int)(preferred.getWidth()/2 - this.getWidth()/2), (int)(preferred.getHeight()/2 - this.getHeight()/2));
 		this.setLocation(screenCenter);
-		this.setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.fill = GridBagConstraints.NONE;
-		gbc.anchor = GridBagConstraints.LINE_START;
-		gbc.weightx = 1;
-		gbc.weighty = 1;
 		
 		panel = new OptionPanel();
 		panel.setTextListener(new StringListener(){
@@ -39,10 +31,8 @@ public class MainFrame extends JFrame {
 			}
 			
 		});
-		this.add(panel, gbc);
-		gbc.gridx++;
-		gbc.weightx = 3;
+		this.add(panel, BorderLayout.WEST);
 		resultTextArea = new ResultBox();
-		this.add(resultTextArea, gbc);
+		this.add(resultTextArea, BorderLayout.CENTER);
 	}
 }
