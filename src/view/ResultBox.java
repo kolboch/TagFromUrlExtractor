@@ -2,7 +2,6 @@ package view;
 
 import java.awt.Dimension;
 
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class ResultBox extends JTextArea{
@@ -15,9 +14,7 @@ public class ResultBox extends JTextArea{
 		textArea = new JTextArea();
 		textArea.setLineWrap(true);
 		textArea.setMinimumSize(new Dimension(400,400));
-		JScrollPane pane = new JScrollPane();
-		pane.add(textArea);
 		textArea.setEditable(false);
-		this.add(pane);
+		this.add(textArea);
 	}
 }

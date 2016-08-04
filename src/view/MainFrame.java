@@ -2,12 +2,11 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Point;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 public class MainFrame extends JFrame {
 	
@@ -16,6 +15,8 @@ public class MainFrame extends JFrame {
 	private Dimension frameDim = new Dimension(preferred.width - preferred.width/10, preferred.height - preferred.height/10);
 	private OptionPanel panel;
 	private ResultBox resultTextArea;
+	private JScrollPane pane;
+	
 	public MainFrame(){
 		this.setSize(frameDim);
 		Point screenCenter = new Point((int)(preferred.getWidth()/2 - this.getWidth()/2), (int)(preferred.getHeight()/2 - this.getHeight()/2));
@@ -33,6 +34,7 @@ public class MainFrame extends JFrame {
 		});
 		this.add(panel, BorderLayout.WEST);
 		resultTextArea = new ResultBox();
-		this.add(resultTextArea, BorderLayout.CENTER);
+		pane = new JScrollPane(resultTextArea);
+		this.add(pane, BorderLayout.CENTER);
 	}
 }
